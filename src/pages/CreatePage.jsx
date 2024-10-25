@@ -10,7 +10,7 @@ export default function CreatePage() {
 
     const post = { caption, image, uid: "ZfPTVEMQKf9vhNiUh0bj" };
 
-    const response = await fetch("https://YOUR-FIREBASE-URL.com/posts.json", {
+    const response = await fetch("https://timotejsproject-default-rtdb.europe-west1.firebasedatabase.app/posts.json", {
       method: "POST",
       body: JSON.stringify(post)
     });

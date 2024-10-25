@@ -8,7 +8,7 @@ export default function UserAvatar({ uid }) {
 
     async function getUser() {
       const response = await fetch(
-        `https://YOUR-FIREBASE-URL.com/users/${uid}.json`
+        `https://timotejsproject-default-rtdb.europe-west1.firebasedatabase.app/users/${uid}.json`
       );
       const data = await response.json();
       setUser(data); // set the user state with the data from firebase
