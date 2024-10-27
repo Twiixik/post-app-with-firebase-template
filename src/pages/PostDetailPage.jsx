@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import PostCard from "./../components/PostCard";
 
 
@@ -7,6 +7,7 @@ export default function PostDetailPage() {
     const [post, setPost] = useState({});
     const params = useParams();
     const url = `https://timotejsproject-default-rtdb.europe-west1.firebasedatabase.app/posts/${params.id}.json`;
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function getPost() {
@@ -16,13 +17,21 @@ export default function PostDetailPage() {
             setPost(postData);
         }
         getPost();   
-    }, [url])
+    }, [url]);
+
+    function navigateToUpdate() {
+        navigate(`/posts/${params.id}/update`);
+    }
 
     return (
         <section className="page" id="post=page">
             <div className="container">
                 <h1>{post.caption}</h1>
                 <PostCard post={post} />
+                <div className="btns">
+                    <button className="btn-cancel">Delete</button>
+                    <button onClick={navigateToUpdate} >Update post</button>
+                </div>
             </div>
         </section>
     )
