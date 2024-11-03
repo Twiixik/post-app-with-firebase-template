@@ -1,19 +1,24 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 export default function CreatePage() {
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState("");
+  const [body, setBody] = useState("");
   const navigate = useNavigate();
 
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const post = { caption, image, uid: "ZfPTVEMQKf9vhNiUh0bj" };
+    const post = { caption, image, body, uid: "ZfPTVEMQKf9vhNiUh0bj" };
 
-    const response = await fetch("https://timotejsproject-default-rtdb.europe-west1.firebasedatabase.app/posts.json", {
-      method: "POST",
-      body: JSON.stringify(post)
-    });
+    const response = await fetch(
+      "https://timotejsproject-default-rtdb.europe-west1.firebasedatabase.app/posts.json",
+      {
+        method: "POST",
+        body: JSON.stringify(post),
+      }
+    );
 
     if (response.ok) {
       navigate("/");
@@ -32,7 +37,7 @@ export default function CreatePage() {
             value={caption}
             aria-label="caption"
             placeholder="Write a caption..."
-            onChange={e => setCaption(e.target.value)}
+            onChange={(e) => setCaption(e.target.value)}
           />
           <label htmlFor="image-url">Image</label>
           <input
@@ -42,8 +47,17 @@ export default function CreatePage() {
             value={image}
             aria-label="image"
             placeholder="Paste an image url..."
-            onChange={e => setImage(e.target.value)}
+            onChange={(e) => setImage(e.target.value)}
           />
+          <label htmlFor="body">Body</label>
+          <textarea
+            id="body"
+            name="body"
+            value={body}
+            aria-label="body"
+            placeholder="Write your post body..."
+            onChange={(e) => setBody(e.target.value)}
+          ></textarea>
           <label htmlFor="image-preview"></label>
           <img
             id="image-preview"
@@ -54,13 +68,13 @@ export default function CreatePage() {
                 : "https://placehold.co/600x400?text=Paste+an+image+URL"
             }
             alt="Choose"
-            onError={e =>
+            onError={(e) =>
               (e.target.src =
                 "https://placehold.co/600x400?text=Error+loading+image")
             }
           />
           <div className="btns">
-            <button>Save</button>
+            <button type="submit">Save</button>
           </div>
         </form>
       </div>
