@@ -10,9 +10,9 @@ export default function PostCard({ post }) {
   return (
     <article className="post-card" onClick={handleClick}>
       <UserAvatar uid={post.uid} />
-      <img src={post.image} alt={post.caption} />
       <h3>{post.caption}</h3>
       <p>{post.body}</p>
+       <img src={post.image} alt={post.caption} />
     </article>
   );
 }
