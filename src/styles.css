@@ -350,3 +350,89 @@ nav a.active {
     opacity: 1;
   }
 }
+
+.post-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  background-color: #fff;
+}
+
+.post-card-header {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+.user-info {
+  flex-grow: 1;
+  margin-left: 8px;
+}
+
+.user-name {
+  font-weight: bold;
+}
+
+.verified-badge {
+  color: green;
+}
+
+.follow-button {
+  background-color: black;
+  color: white;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+}
+
+.more-options {
+  margin-left: 8px;
+}
+
+.post-card-body {
+  padding: 8px;
+}
+
+.post-caption {
+  margin: 8px 0;
+}
+
+.post-user-handle {
+  font-weight: bold;
+}
+
+.post-engagement {
+  display: flex;
+  gap: 16px;
+  margin: 8px 0;
+}
+
+.view-all-comments {
+  color: blue;
+  cursor: pointer;
+}
+
+.add-comment {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-comment input {
+  flex-grow: 1;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.comment-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.post-timestamp {
+  color: gray;
+  font-size: 12px;
+}
